@@ -1,0 +1,10 @@
+FROM centos:7
+WORKDIR /tmp
+RUN yum -y install \
+      httpd
+      perl \
+      ImageMagick-perl \
+      ImageMagick \
+      perl-DBD-MySQL
+CMD ["/usr/sbin/httpd", "-DFOREGROUND", "-f", "/etc/httpd/conf/httpd.conf"]
+

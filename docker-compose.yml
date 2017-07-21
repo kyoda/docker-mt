@@ -1,0 +1,26 @@
+version: '3.0'
+services:
+  mt-web:
+    build:
+      context: .
+      dockerfile: Dockerfile.web
+    container_name: mt-web
+    depends_on:
+    - mt-db
+    ports:
+    - "28080:80"
+    volumes:
+    - ./web_log:/var/log/httpd
+    - ./web_conf/httpd.conf:/etc/httpd/conf/httpd.conf:ro
+    - ./mt/:/var/www/cgi-bin/mt
+    - ./html:/var/www/html
+  mt-db:
+    build:
+      context: .
+      dockerfile: Dockerfile.db
+    container_name: mt-db
+    volumes:
+    - ./db:/var/lib/mysql
+    - ./db_log:/var/log/mysql
+    - ./db_conf/mt.cnf:/etc/mysql/conf.d/mt.cnf:ro
+    - ./db_init:/docker-entrypoint-initdb.d:ro

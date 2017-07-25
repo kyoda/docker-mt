@@ -9,3 +9,5 @@ webのdocker imageはcentos7です。
 + volumesの権限
   - 起動後にapache権限に変更
   - docker-compose exec mt-web chown apache. -R /var/www/html /var/www/cgi-bin
++ exit 1でmt-dbが停止している場合は、db_logに書き込み権限が必要かもしれない
+  - chmod 777 db_log

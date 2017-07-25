@@ -1,7 +1,7 @@
 FROM centos:7
 WORKDIR /tmp
 RUN yum -y install \
-      httpd
+      httpd \
       perl \
       ImageMagick-perl \
       ImageMagick \

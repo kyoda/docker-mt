@@ -1,5 +1,7 @@
 [mysqld]
 character-set-server = utf8mb4
+collation_server=utf8mb4_unicode_ci
+
 log-error=/var/log/mysql/mysqld.log
 
 #slow_query_log

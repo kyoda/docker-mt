@@ -5,6 +5,7 @@ RUN yum -y install \
       perl \
       ImageMagick-perl \
       ImageMagick \
-      perl-DBD-MySQL
+      perl-DBD-MySQL \
+      perl-Digest-MD5
 CMD ["/usr/sbin/httpd", "-DFOREGROUND", "-f", "/etc/httpd/conf/httpd.conf"]
 
